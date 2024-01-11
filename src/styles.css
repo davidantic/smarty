@@ -1,0 +1,19 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+@font-face {
+    font-family: 'inter';
+    src: url('assets/fonts/Inter-Regular.ttf') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+};
+
+
+.container{
+    background-color: #F3F4F5;
+}
+
+.box-shadow{
+    background-color: #FFFF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-left:  10px solid #B5A8F0;
+  }

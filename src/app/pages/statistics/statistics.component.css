@@ -1,0 +1,5 @@
+.box-shadow{
+    background-color: #FFFF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-left:  10px solid #B5A8F0;
+  }

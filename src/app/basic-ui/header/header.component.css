@@ -1,0 +1,26 @@
+*{
+    font-family: "inter";
+  }
+
+.avatar{
+    width: 2em;
+}
+
+.avatar-lg{
+    width: 3rem;
+}
+
+.search-cstm{
+    height: 1.7rem;
+    min-width: 700px;
+    z-index: 1;
+    background-color: #DEE6EC;
+    border: 0;
+}
+
+.btn-cstm{
+    border: 0;
+    background-color: #318EC2;
+    height: 1.7rem;
+    padding: 0 2.7% 0 2.7%;
+}

@@ -1,0 +1,23 @@
+<h3 class="fw-bold">Courses</h3>
+<div class="table-wrap">
+    <table class="table table-rounded rounded rounded-4 overflow-hidden ">
+        <thead>
+          <tr>
+            <th scope="col" class="thead py-3">Course ID</th>
+            <th scope="col" class="thead py-3">Title</th>
+            <th scope="col" class="thead py-3">ECTS</th>
+            <th scope="col" class="thead py-3">Semester</th>
+            <th scope="col" class="thead py-3">Detail</th>
+          </tr>
+        </thead>
+        <tbody>
+      <tr *ngFor="let course of courses">
+            <td class="py-3">{{ course.code }}</td>
+            <td class="py-3">{{ course.fullName }}</td>
+            <td class="py-3">{{ course.points }}</td>
+            <td class="py-3">{{ course.semester }}</td>
+            <td class="py-3"> <a href="#"><fa-icon [icon]="viewIcon" class="mx-1" style="color:black"></fa-icon></a></td> 
+          </tr>
+        </tbody>
+      </table>
+</div>

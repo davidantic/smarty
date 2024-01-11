@@ -1,0 +1,31 @@
+<header style="background-color: #FFFF;" class="mb-3">
+  <div class="container align-items-center">
+    <div class="row align-items-center my-1">
+      <div class="col-md-4">
+        <form class="d-flex align-items-center">
+          <button class="btn" type="submit"><fa-icon [icon]="glassIcon" class="mx-1" style="color:black"></fa-icon></button>
+              <input class="form-control me-2 rounded-pill search-cstm" type="search" aria-label="Search">
+       </form>
+      </div>
+      <div class="col-md-8 d-flex justify-content-end align-items-center">
+        <fa-icon [icon]="bellIcon" class="mx-1" style="color:black"></fa-icon>
+        <img src="/assets/images/andjely.webp" alt="image2" class="mx-2 avatar ">
+        <p class="m-0">Andjela Vukotic</p>
+      </div>
+    </div>
+  </div>
+<div class="row align-items-center mt-3 gx-0">
+  <div class="col-auto d-flex align-items-center">
+    <img src="/assets/images/andjely.webp" alt="Avatar" class="img-fluid rounded-circle me-3 mx-3 mb-1 avatar-lg" width="50">
+    <div>
+      <div class="h6 mb-0">Hello there,</div>
+      <div><p class="m-0">Andjela Vukotic</p></div>
+    </div>
+  </div>
+  <div class="col text-end">
+    <a href="#" class="text-white btn mx-2 btn-cstm rounded-pill text-decoration-none" *ngIf="role === 'PROFESSOR'" [routerLink]="['/reports']">Add report</a>
+    <a href="#" class="text-white btn mx-2 btn-cstm rounded-pill text-decoration-none" *ngIf="role === 'PROFESSOR'" [routerLink]="['/posts-form']">Add post</a>
+  </div>
+</div>
+
+</header>
