@@ -26,4 +26,8 @@ export class ExamService {
   createExam(ExamData: any) {
     return this.http.post(this.apiUrl, ExamData, {headers});
     }
+
+  fetchExamByStudentId(studentId: number){
+    return this.http.get<any>(this.apiUrl + `/by-student/${studentId}`, {headers})
+  }
 }

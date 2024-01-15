@@ -25,4 +25,8 @@ export class ActivityService {
   createActivity(ActivityData: any) {
     return this.http.post(this.apiUrl, ActivityData, {headers});
     }
+
+  fetchActivitesByCourseAndStudent(course: string, studentId: number): Observable<any>{
+    return this.http.get<any>(this.apiUrl + `/by-course-of-student/${studentId}?code=${course}`, {headers});
+  }
 }

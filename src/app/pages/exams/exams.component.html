@@ -1,1 +1,25 @@
-<p>exams works!</p>
+<h3 class="fw-bold">Exams</h3>
+<div class="table-wrap">
+    <table class="table table-rounded rounded rounded-4 overflow-hidden ">
+        <thead>
+          <tr>
+            <th scope="col" class="thead py-3">Course</th>
+            <th scope="col" class="thead py-3">Comment</th>
+            <th scope="col" class="thead py-3">Grade</th>
+            <th scope="col" class="thead py-3">Points</th>
+            <th scope="col" class="thead py-3">Total</th>
+            <th scope="col" class="thead py-3">Examined</th>
+        </tr>
+        </thead>
+        <tbody>
+      <tr *ngFor="let exam of exams" class="overflow-hidden">
+            <td class="py-3">{{ exam.course.code }}</td>
+            <td class="py-3">{{ exam.comment }}</td>
+            <td class="py-3">{{ exam.grade }}</td>
+            <td class="py-3">{{ exam.points }}</td>
+            <td class="py-3">{{ exam.totalPoints }}</td>
+            <td class="py-3">{{ exam.dateOfExamination | date :'short'}}</td>
+        </tr>
+        </tbody>
+      </table>
+</div>

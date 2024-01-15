@@ -1,5 +1,11 @@
 import { Course } from "./course";
 
+enum Type{
+    "PROJECT",
+    "HOMEWORK",
+    "ENGAGEMENT"
+}
+
 export class Task{
     id: number;
     maxPoints: number;
