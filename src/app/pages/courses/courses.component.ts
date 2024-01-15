@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Course } from 'src/app/models/course';
 import { CourseService } from 'src/app/services/course-service';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
+import { AccountService } from 'src/app/services/account-service';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-courses',
@@ -11,13 +13,22 @@ import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 export class CoursesComponent {
 
   courses: Course[] = []
+  fetchedArray : any[] = []
+  role: String = "";
   viewIcon = faPenToSquare;
 
-  constructor(private api : CourseService) { 
+  constructor(private api : CourseService, private accountService: AccountService, private authService: AuthService) { 
   }
 
   ngOnInit(): void{
-    this.fetchCourses();
+    if(this.authService.getRole() == "ROLE_PROFESSOR"){
+      this.role = "PROFESSOR"
+    } else if(this.authService.getRole() == "ROLE_STUDENT"){
+      this.role = "STUDENT"
+    }else if (this.authService.getRole() == "ROLE_ASSISTANT"){
+      this.role = "ASSISTANT"
+    }
+    this.fetchEngagements();
   }
 
 fetchCourses(){
@@ -25,4 +36,16 @@ fetchCourses(){
     this.courses = data.content
   })
 }
+
+fetchEngagements() {
+  this.accountService.getUser().subscribe(user => {
+    const professorId = user.id;
+    this.api.fetchEngagements().subscribe(data => {
+      this.fetchedArray = data.content.filter((engagement: { professor: { id: any; }; }) => engagement.professor.id === professorId);
+      this.courses = this.fetchedArray.map(engagement => engagement.course);
+    });
+  });
+}
+
+
 }

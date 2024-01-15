@@ -32,13 +32,16 @@ import { ExamsFormComponent } from './pages/exams-form/exams-form.component';
 import { PointsFormComponent } from './pages/points-form/points-form.component';
 import { JwtInterceptor, JwtHelperService, JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { jwtHelperFactory } from './auth/jwt-helper.service';
-import { AuthGuard } from './auth/authguardStudent';
+import { AuthGuard } from './auth/authguard';
+import { LogoutComponent } from './pages/logout/logout.component';
+import { ExamsWidgetComponent } from './widgets/exams-widget/exams-widget.component';
+import { ReportWidgetComponent } from './widgets/report-widget/report-widget.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: 'tasks', component: TasksComponent },
+  { path: 'tasks/:id', component: TasksComponent },
   { path: 'courses', component: CoursesComponent },
   { path: 'students', component: StudentsComponent },
   { path: 'profile', component: ProfileComponent },
@@ -49,6 +52,7 @@ const routes: Routes = [
   { path: 'reports-list', component: ReportsListComponent },
   { path: 'posts', component: PostsComponent, canActivate: [AuthGuard] },
   { path: 'posts-form', component: PostsFormComponent },
+  { path: 'exams/:id', component: ExamsFormComponent },
   
 ];
 
@@ -91,6 +95,9 @@ export function jwtOptionsFactory() {
     ExamsComponent,
     ExamsFormComponent,
     PointsFormComponent,
+    LogoutComponent,
+    ExamsWidgetComponent,
+    ReportWidgetComponent
     // AlertComponent,
   ],
   imports: [

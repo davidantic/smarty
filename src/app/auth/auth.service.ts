@@ -23,7 +23,6 @@ export class AuthService {
 
   getToken(): string | null {
     const token = localStorage.getItem('token');
-    console.log(this.jwtHelper.decodeToken(token!))
     return token !== null ? token : null;
   }
   

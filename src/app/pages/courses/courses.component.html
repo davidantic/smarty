@@ -7,7 +7,10 @@
             <th scope="col" class="thead py-3">Title</th>
             <th scope="col" class="thead py-3">ECTS</th>
             <th scope="col" class="thead py-3">Semester</th>
-            <th scope="col" class="thead py-3">Detail</th>
+            <!-- <th scope="col" class="thead py-3">Detail</th> -->
+            <th scope="col" class="thead py-3" *ngIf="role === 'PROFESSOR' || role === 'ASSISTANT'">Activities</th>
+            <th scope="col" class="thead py-3" *ngIf="role === 'PROFESSOR'">Exams</th>
+            
           </tr>
         </thead>
         <tbody>
@@ -16,7 +19,8 @@
             <td class="py-3">{{ course.fullName }}</td>
             <td class="py-3">{{ course.points }}</td>
             <td class="py-3">{{ course.semester }}</td>
-            <td class="py-3"> <a href="#"><fa-icon [icon]="viewIcon" class="mx-1" style="color:black"></fa-icon></a></td> 
+            <td class="py-3"> <a href="#" [routerLink]="['/tasks', course.id]"><fa-icon [icon]="viewIcon" class="mx-1" style="color:black"></fa-icon></a></td> 
+            <td class="py-3"> <a href="#" [routerLink]="['/exams', course.id]"><fa-icon [icon]="viewIcon" class="mx-1" style="color:black"></fa-icon></a></td> 
           </tr>
         </tbody>
       </table>
