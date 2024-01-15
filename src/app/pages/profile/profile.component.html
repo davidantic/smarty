@@ -2,15 +2,25 @@
     <div class="row w-75 gx-0 d-flex bg-light box-shadow justify-content-center rounded rounded-4" id="cstm">
         <div class="col-lg-12 text-center">
             <img src="/assets/images/andjely.webp" alt="image2" class="mx-2 avatar ">
-            <h2>Andjela Vukotic</h2>
-            <hr class="mx-5">
-            <p>Index: 6666</p>
-            <p>Year: 3</p>
-            <p>Major: Software Engeering</p>
-            <p>Status: Traditional student</p>
-            <p>E-Mail: traditional.student.6666@email.com</p>
-            <p>Date of birth: 1.1.1999</p>
-            <p class="fw-bold">Average grade: 9.5</p>
+            <div *ngIf="!(role === 'STUDENT')">
+                <h2 class="py-2">{{professor.name}} {{professor.surname}}</h2>
+                <hr class="mx-5">
+                <p class="py-3">Years of experience: {{professor.yearsOfExperience}}</p>
+                <p class="py-3">E-Mail: {{professor.account.email}}</p>
+                <p class="py-3" >Role: {{professor.account.role}}</p>
+            </div>
+            <div *ngIf="role === 'STUDENT'">
+                <h2 class="py-2">{{student.name}} {{student.surname}}</h2>
+                <hr class="mx-5">
+                <p>Index: {{student.index}}</p>
+                <p>Year: {{student.year}}</p>
+                <p>Semester: {{student.semester}}</p>
+                <p>Major: {{student.major.fullName}}</p>
+                <p>Status: {{student.status.type}}</p>
+                <p>E-Mail: {{student.account.email}}</p>
+              
+                <p class="fw-bold">Average grade: 9.5</p>
+            </div>
         </div>
     </div>
 </div>

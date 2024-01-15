@@ -1,7 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 // import { Exam } from '../models/course';
+
+const token = localStorage.getItem('token')
+const headers = new HttpHeaders()
+.set('Authorization', `Bearer ${token}`)
+.set('Content-Type', 'application/json')
+.set('Access-Control-Allow-Origin', '*');
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +24,6 @@ export class ExamService {
   }
 
   createExam(ExamData: any) {
-    return this.http.post(this.apiUrl, ExamData);
+    return this.http.post(this.apiUrl, ExamData, {headers});
     }
 }

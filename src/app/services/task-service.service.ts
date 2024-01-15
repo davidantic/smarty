@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/internal/Observable';
 
 const token = localStorage.getItem('token')
 const headers = new HttpHeaders()
@@ -12,17 +12,11 @@ const headers = new HttpHeaders()
 @Injectable({
   providedIn: 'root'
 })
-export class ReportService {
-
-  private apiUrl = 'http://localhost:8080/api/reports';
+export class TaskService {
 
   constructor(private http: HttpClient) { }
 
-  fetchReports(): Observable<any> {
-    return this.http.get<any>(this.apiUrl, {headers});
+  getTasksByCourseId(courseId: number): Observable<any> {
+    return this.http.get<any>(`http://localhost:8080/api/tasks/by-course/${courseId}`, {headers});
   }
-
-  createReport(ReportData: any) {
-    return this.http.post(this.apiUrl, ReportData, {headers});
-    }
 }

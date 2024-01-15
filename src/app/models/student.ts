@@ -1,3 +1,4 @@
+import { Account } from "./account";
 import { Major } from "./majors";
 import { StudyStatus } from "./status";
 
@@ -11,7 +12,9 @@ export class Student{
     surname: String;
     year: number;
     major: Major;
-    studyStatus: StudyStatus;
+    status: StudyStatus;
+    semester: number;
+    account: Account;
 
     constructor(data: any){
         this.id = data.id
@@ -23,6 +26,6 @@ export class Student{
         this.surname = data.surname
         this.year = data.year
         this.major = data.major
-        this.studyStatus = data.studyStatus
+        this.status = data.studyStatus
     }
 }

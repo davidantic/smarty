@@ -23,8 +23,8 @@
     </div>
   </div>
   <div class="col text-end">
-    <a href="#" class="text-white btn mx-2 btn-cstm rounded-pill text-decoration-none" *ngIf="role === 'PROFESSOR'" [routerLink]="['/reports']">Add report</a>
-    <a href="#" class="text-white btn mx-2 btn-cstm rounded-pill text-decoration-none" *ngIf="role === 'PROFESSOR'" [routerLink]="['/posts-form']">Add post</a>
+    <a href="#" class="text-white btn mx-2 btn-cstm rounded-pill text-decoration-none" *ngIf="role === 'PROFESSOR' " [routerLink]="['/reports']">Add report</a>
+    <a href="#" class="text-white btn mx-2 btn-cstm rounded-pill text-decoration-none" *ngIf="role === 'PROFESSOR' || role === 'ASSISTANT'" [routerLink]="['/posts-form']">Add post</a>
   </div>
 </div>
 

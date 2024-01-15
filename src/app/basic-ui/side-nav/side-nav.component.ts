@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faBorderAll, faClock, faFolderBlank, faChartColumn, faUser,  faRightFromBracket, faClipboard, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faBorderAll, faClock, faFolderBlank, faChartColumn, faUser,  faRightFromBracket, faClipboard, faEnvelope, faListNumeric } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
@@ -16,6 +16,7 @@ export class SideNavComponent {
   logOutIcon = faRightFromBracket;
   reportIcon = faClipboard;
   envelopeIcon = faEnvelope;
+  examIcon = faListNumeric;
 
   role = ""
 

@@ -1,61 +1,65 @@
 <div class="d-flex flex-column flex-shrink-0 p-3 text-white" id="nav" style="width: 256px;">
-    <img class="w-50 rounded mx-auto d-block" src="/assets/images/logo.png">
-    <hr>
-    <ul class="nav nav-pills flex-column mb-5">
-      <li class="nav-item">
-        <h5>General</h5>
-        <a href="#" class="nav-link" [routerLink]="['/dashboard']">
-            <fa-icon [icon]="homeIcon" class="icon-light mx-1"></fa-icon>
-          Home
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link" [routerLink]="['/tasks']">
-            <fa-icon [icon]="taskIcon" class="icon-light mx-1"></fa-icon>
-          Tasks
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link" [routerLink]="['/courses']">
-        <fa-icon [icon]="courseIcon" class="icon-light mx-1"></fa-icon>
-          Courses
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link" [routerLink]="['/posts']">
-          <fa-icon [icon]="envelopeIcon" class="icon-light mx-1"></fa-icon>
-          Posts
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link" *ngIf="role === 'PROFESSOR'" [routerLink]="['/reports-list']">
-          <fa-icon [icon]="reportIcon" class="icon-light mx-1"></fa-icon>
-          Reports
-        </a>
-      </li>
-    </ul>
-
-
-    <ul class="nav nav-pills flex-column mb-auto py-1">
-        <li class="nav-item">
-          <h5>My profile</h5>
-          <a href="#" class="nav-link" [routerLink]="['/statistics']">
-            <fa-icon [icon]="statisticsIcon" class="icon-light mx-1"></fa-icon>
-            Statistics
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-link" [routerLink]="['/profile']">
-            <fa-icon [icon]="profileIcon" class="icon-light mx-1"></fa-icon>
-            Profile
-          </a>
-        </li>
-      </ul>
-    <hr>
-    <div class="nav nav-pills flex-column">
-      <a href="#" class=" align-items-center nav-item text-decoration-none" style="color:white">
-        <fa-icon [icon]="logOutIcon" class="icon-light mx-1"></fa-icon>
-            Log out
+  <img class="w-50 rounded mx-auto d-block" src="/assets/images/logo.png">
+  <hr>
+  <ul class="nav nav-pills flex-column mb-5">
+    <li class="nav-item">
+      <h5>General</h5>
+      <a href="#" class="nav-link" [routerLink]="['/dashboard']">
+        <fa-icon [icon]="homeIcon" class="icon-light mx-1"></fa-icon>
+        Home
       </a>
-    </div>
+    </li>
+    <!-- <li>
+      <a href="#" class="nav-link" *ngIf="role === 'PROFESSOR'" [routerLink]="['/tasks']">
+        <fa-icon [icon]="taskIcon" class="icon-light mx-1"></fa-icon>
+        Activities
+      </a>
+    </li> -->
+    <li>
+      <a href="#" class="nav-link" [routerLink]="['/courses']">
+        <fa-icon [icon]="courseIcon" class="icon-light mx-1"></fa-icon>
+        Courses
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link" [routerLink]="['/posts']">
+        <fa-icon [icon]="envelopeIcon" class="icon-light mx-1"></fa-icon>
+        Posts
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link" *ngIf="role === 'PROFESSOR'" [routerLink]="['/reports-list']">
+        <fa-icon [icon]="reportIcon" class="icon-light mx-1"></fa-icon>
+        Reports
+      </a>
+    </li>
+    <li>
+      <a href="#" class="nav-link" [routerLink]="['/exams']">
+        <fa-icon [icon]="examIcon" class="icon-light mx-1"></fa-icon>
+        Exams
+      </a>
+    </li>
+  </ul>
+
+
+  <ul class="nav nav-pills flex-column mb-auto py-1">
+    <li class="nav-item">
+      <h5>My profile</h5>
+      <a href="#" class="nav-link" [routerLink]="['/statistics']">
+        <fa-icon [icon]="statisticsIcon" class="icon-light mx-1"></fa-icon>
+        Statistics
+      </a>
+    </li>
+    <li>
+      <a href="#" class="nav-link" [routerLink]="['/profile']">
+        <fa-icon [icon]="profileIcon" class="icon-light mx-1"></fa-icon>
+        Profile
+      </a>
+    </li>
+
+  </ul>
+  <hr>
+  <div class="nav nav-pills flex-column">
+    <app-logout></app-logout>
   </div>
+</div>

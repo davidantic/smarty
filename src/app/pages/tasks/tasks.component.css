@@ -1,0 +1,17 @@
+.cstm{
+  border: none;
+}
+
+textarea{
+  height: 15rem;
+}
+
+.btn-cstm{
+  background: rgb(77,139,204);
+  background: linear-gradient(0deg, rgba(77,139,204,1) 0%, rgba(159,105,184,1) 100%); 
+}
+
+.btn-cstm:hover{
+  background: rgb(77,139,204);
+  animation: ease-in 2s;
+}
