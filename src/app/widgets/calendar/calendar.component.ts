@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 
+interface CalendarDay {
+  date: Date;
+  isOtherMonth: boolean;
+}
+
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
@@ -23,7 +28,5 @@ export class CalendarComponent {
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     return Array.from({ length: daysInMonth }, (_, index) => index + 1);
   }
-
-
 
 }

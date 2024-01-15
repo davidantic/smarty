@@ -2,3 +2,7 @@
     max-width: 65%;
     padding: 0 2%;
 }
+
+.custom-width{
+    max-width: 300px;
+}

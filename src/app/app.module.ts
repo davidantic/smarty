@@ -37,6 +37,8 @@ import { LogoutComponent } from './pages/logout/logout.component';
 import { ExamsWidgetComponent } from './widgets/exams-widget/exams-widget.component';
 import { ReportWidgetComponent } from './widgets/report-widget/report-widget.component';
 import { CourseActivityDetailComponent } from './pages/course-activity-detail/course-activity-detail.component';
+import { CourseExamDetailsComponent } from './pages/course-exam-details/course-exam-details.component';
+import { CourseStudentActivitiesDetailsComponent } from './pages/course-student-activities-details/course-student-activities-details.component';
 
 
 const routes: Routes = [
@@ -55,7 +57,9 @@ const routes: Routes = [
   { path: 'posts-form', component: PostsFormComponent },
   { path: 'exams/:id', component: ExamsFormComponent },
   {path:'exams', component:ExamsComponent},
-  {path : 'course-activity/:id/:code', component: CourseActivityDetailComponent}
+  {path : 'course-activity/:id/:code', component: CourseActivityDetailComponent},
+  {path : 'courses/course-exam/:id', component: CourseExamDetailsComponent}
+
 ];
 
 export function tokenGetter() {
@@ -100,8 +104,9 @@ export function jwtOptionsFactory() {
     LogoutComponent,
     ExamsWidgetComponent,
     ReportWidgetComponent,
-    CourseActivityDetailComponent
-    // AlertComponent,
+    CourseActivityDetailComponent,
+    CourseExamDetailsComponent,
+    CourseStudentActivitiesDetailsComponent,
   ],
   imports: [
     BrowserModule,

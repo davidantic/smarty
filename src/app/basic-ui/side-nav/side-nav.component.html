@@ -34,13 +34,12 @@
       </a>
     </li>
     <li>
-      <a href="#" class="nav-link" [routerLink]="['/exams']">
+      <a href="#" class="nav-link" *ngIf="role === 'STUDENT'" [routerLink]="['/exams']">
         <fa-icon [icon]="examIcon" class="icon-light mx-1"></fa-icon>
         Exams
       </a>
     </li>
   </ul>
-
 
   <ul class="nav nav-pills flex-column mb-auto py-1">
     <li class="nav-item">

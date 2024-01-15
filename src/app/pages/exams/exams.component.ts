@@ -16,13 +16,6 @@ export class ExamsComponent {
   constructor(private examService : ExamService, private accountService: AccountService, private authService: AuthService){}
 
   ngOnInit(){
-    // if(this.authService.getRole() == "ROLE_PROFESSOR"){
-    //   this.role = "PROFESSOR"
-    // } else if(this.authService.getRole() == "ROLE_STUDENT"){
-    //   this.role = "STUDENT"
-    // }else if (this.authService.getRole() == "ROLE_ASSISTANT"){
-    //   this.role = "ASSISTANT"
-    // }
    this.fetchExamsForStudent()
   }
   fetchExamsForStudent(){

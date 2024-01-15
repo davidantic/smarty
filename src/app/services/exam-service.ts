@@ -30,4 +30,8 @@ export class ExamService {
   fetchExamByStudentId(studentId: number){
     return this.http.get<any>(this.apiUrl + `/by-student/${studentId}`, {headers})
   }
+
+  fetchExamsByCourseId(courseId: number){
+    return this.http.get<any>(this.apiUrl + `/by-course/${courseId}`, {headers})
+  }
 }
