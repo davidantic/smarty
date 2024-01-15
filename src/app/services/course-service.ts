@@ -29,5 +29,8 @@ export class CourseService {
     return this.http.get<any>(this.professorApiUrl, {headers})
   }
 
+  fetchCoursesByStudentId(studentId : number) :Observable<any>{
+    return this.http.get<any>(this.apiUrl + `/by-student/${studentId}`, {headers})
+  }
   
 }

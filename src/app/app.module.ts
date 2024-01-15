@@ -36,6 +36,7 @@ import { AuthGuard } from './auth/authguard';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { ExamsWidgetComponent } from './widgets/exams-widget/exams-widget.component';
 import { ReportWidgetComponent } from './widgets/report-widget/report-widget.component';
+import { CourseActivityDetailComponent } from './pages/course-activity-detail/course-activity-detail.component';
 
 
 const routes: Routes = [
@@ -53,7 +54,8 @@ const routes: Routes = [
   { path: 'posts', component: PostsComponent, canActivate: [AuthGuard] },
   { path: 'posts-form', component: PostsFormComponent },
   { path: 'exams/:id', component: ExamsFormComponent },
-  
+  {path:'exams', component:ExamsComponent},
+  {path : 'course-activity/:id/:code', component: CourseActivityDetailComponent}
 ];
 
 export function tokenGetter() {
@@ -97,7 +99,8 @@ export function jwtOptionsFactory() {
     PointsFormComponent,
     LogoutComponent,
     ExamsWidgetComponent,
-    ReportWidgetComponent
+    ReportWidgetComponent,
+    CourseActivityDetailComponent
     // AlertComponent,
   ],
   imports: [

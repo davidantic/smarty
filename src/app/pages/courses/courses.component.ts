@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Course } from 'src/app/models/course';
 import { CourseService } from 'src/app/services/course-service';
-import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare, faListDots } from '@fortawesome/free-solid-svg-icons';
 import { AccountService } from 'src/app/services/account-service';
 import { AuthService } from 'src/app/auth/auth.service';
 
@@ -16,6 +16,8 @@ export class CoursesComponent {
   fetchedArray : any[] = []
   role: String = "";
   viewIcon = faPenToSquare;
+  listIcon = faListDots;
+  studentId = 0;
 
   constructor(private api : CourseService, private accountService: AccountService, private authService: AuthService) { 
   }
@@ -23,18 +25,31 @@ export class CoursesComponent {
   ngOnInit(): void{
     if(this.authService.getRole() == "ROLE_PROFESSOR"){
       this.role = "PROFESSOR"
+      this.fetchEngagements();
     } else if(this.authService.getRole() == "ROLE_STUDENT"){
       this.role = "STUDENT"
+      this.accountService.getUser().subscribe(user => {
+        this.studentId = user.id;})
+      this.fetchStudentCourses();
     }else if (this.authService.getRole() == "ROLE_ASSISTANT"){
       this.role = "ASSISTANT"
+      this.fetchEngagements();
     }
-    this.fetchEngagements();
+    
   }
 
 fetchCourses(){
   this.api.fetchCourses().subscribe(data=>{
     this.courses = data.content
   })
+}
+
+fetchStudentCourses(){
+  this.accountService.getUser().subscribe(user => {
+    const studentId = user.id;
+  this.api.fetchCoursesByStudentId(studentId).subscribe(data =>{
+      this.courses = data
+  })});
 }
 
 fetchEngagements() {
