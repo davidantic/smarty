@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+*{
+  font-family: 'inter'
+  }
+
+  .cstm{
+    border-bottom: 1px solid #e7e5e5;
+  }
+
+  .box-shadow{
+    background-color: #FFFF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-left:  10px solid #B5A8F0;
+  }

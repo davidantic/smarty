@@ -1,30 +1,36 @@
 <h3 class="fw-bold">Courses</h3>
 <div class="table-wrap">
-    <table class="table table-rounded rounded rounded-4 overflow-hidden ">
-        <thead>
-          <tr>
-            <th scope="col" class="thead py-3">Course ID</th>
-            <th scope="col" class="thead py-3">Title</th>
-            <th scope="col" class="thead py-3">ECTS</th>
-            <th scope="col" class="thead py-3">Semester</th>
-            <!-- <th scope="col" class="thead py-3">Detail</th> -->
-            <th scope="col" class="thead py-3" *ngIf="role === 'PROFESSOR' || role === 'ASSISTANT'">Activities</th>
-            <th scope="col" class="thead py-3" *ngIf="role === 'PROFESSOR'">Exams</th>
-            <th scope="col" class="thead py-3" *ngIf="role === 'STUDENT'">Activities</th>
-          </tr>
-        </thead>
-        <tbody>
+  <table class="table table-rounded rounded rounded-4 overflow-hidden ">
+    <thead>
+      <tr>
+        <th scope="col" class="thead py-3">Course ID</th>
+        <th scope="col" class="thead py-3">Title</th>
+        <th scope="col" class="thead py-3">ECTS</th>
+        <th scope="col" class="thead py-3">Semester</th>
+        <!-- <th scope="col" class="thead py-3">Detail</th> -->
+        <th scope="col" class="thead py-3" *ngIf="role === 'PROFESSOR' || role === 'ASSISTANT'">Activities</th>
+        <th scope="col" class="thead py-3" *ngIf="role === 'PROFESSOR'">Exams</th>
+        <th scope="col" class="thead py-3" *ngIf="role === 'STUDENT'">Activities</th>
+      </tr>
+    </thead>
+    <tbody>
       <tr *ngFor="let course of courses">
-            <td class="py-3">{{ course.code }}</td>
-            <td class="py-3">{{ course.fullName }}</td>
-            <td class="py-3">{{ course.points }}</td>
-            <td class="py-3">{{ course.semester }}</td>
-            <td class="py-3" *ngIf="role === 'PROFESSOR' || role === 'ASSISTANT'"> <a  href="#" [routerLink]="['/tasks', course.id]"><fa-icon [icon]="viewIcon" class="mx-1" style="color:black"></fa-icon></a></td> 
-            <td class="py-3" *ngIf="role === 'PROFESSOR'"> <a  href="#" [routerLink]="['/exams', course.id]"><fa-icon [icon]="viewIcon" class="mx-1" style="color:black"></fa-icon></a>
-              <a  href="#" [routerLink]="['/exams', course.id]"><fa-icon [icon]="listIcon" class="mx-1" style="color:black"></fa-icon></a>
-            </td>
-            <td class="py-3" *ngIf="role === 'STUDENT'"><a  href="#" [routerLink]="['/course-activity', studentId, course.code]"><fa-icon [icon]="listIcon" class="mx-1" style="color:black"></fa-icon></a></td>
-          </tr>
-        </tbody>
-      </table>
+        <td class="py-3">{{ course.code }}</td>
+        <td class="py-3">{{ course.fullName }}</td>
+        <td class="py-3">{{ course.points }}</td>
+        <td class="py-3">{{ course.semester }}</td>
+        <td class="py-3" *ngIf="role === 'PROFESSOR' || role === 'ASSISTANT'"> <a href="#"
+            [routerLink]="['/tasks', course.id]"><fa-icon [icon]="viewIcon" class="mx-1"
+              style="color:black"></fa-icon></a></td>
+        <td class="py-3" *ngIf="role === 'PROFESSOR'"> <a href="#" [routerLink]="['/exams', course.id]"><fa-icon
+              [icon]="viewIcon" class="mx-1" style="color:black"></fa-icon></a>
+          <a href="#" [routerLink]="['course-exam', course.id]"><fa-icon [icon]="listIcon" class="mx-1"
+              style="color:black"></fa-icon></a>
+        </td>
+        <td class="py-3" *ngIf="role === 'STUDENT'"><a href="#"
+            [routerLink]="['/course-activity', studentId, course.code]"><fa-icon [icon]="listIcon" class="mx-1"
+              style="color:black"></fa-icon></a></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
