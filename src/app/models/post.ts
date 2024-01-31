@@ -2,7 +2,7 @@ export class Post{
     id: Number;
     title: string
     description: string
-    createdAt: Date
+    createdAt: Date | null;
 
     constructor(data: any) {
         this.id = data.id;

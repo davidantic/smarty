@@ -5,9 +5,9 @@ import { Post } from '../models/post';
 
 const token = localStorage.getItem('token')
 const headers = new HttpHeaders()
-.set('Authorization', `Bearer ${token}`)
-.set('Content-Type', 'application/json')
-.set('Access-Control-Allow-Origin', '*');
+  .set('Authorization', `Bearer ${token}`)
+  .set('Content-Type', 'application/json')
+  .set('Access-Control-Allow-Origin', '*');
 
 
 @Injectable({
@@ -15,19 +15,19 @@ const headers = new HttpHeaders()
 })
 export class PostsService {
 
-  private apiUrl = 'http://localhost:8080/api/posts';
+  private apiUrl = 'http://localhost:8080/api/v1/posts';
 
   constructor(private http: HttpClient) { }
 
   fetchPosts(): Observable<any> {
-    return this.http.get<any>(this.apiUrl, {headers});
+    return this.http.get<any>(this.apiUrl, { headers });
   }
 
-  fetchLatest(): Observable<Post[]>{
-    return this.http.get<Post[]>("http://localhost:8080/api/posts/latest", {headers})
+  fetchLatest(): Observable<Post[]> {
+    return this.http.get<Post[]>("http://localhost:8080/api/v1/posts/latest", { headers })
   }
 
   createPost(PostData: any) {
-    return this.http.post(this.apiUrl, PostData, {headers});
-    }
+    return this.http.post(this.apiUrl, PostData, { headers });
+  }
 }

@@ -1,4 +1,4 @@
-enum Type{
+enum Type {
     "PROJECT",
     "HOMEWORK",
     "ENGAGEMENT"

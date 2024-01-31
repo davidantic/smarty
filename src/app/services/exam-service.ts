@@ -5,9 +5,9 @@ import { Observable, map } from 'rxjs';
 
 const token = localStorage.getItem('token')
 const headers = new HttpHeaders()
-.set('Authorization', `Bearer ${token}`)
-.set('Content-Type', 'application/json')
-.set('Access-Control-Allow-Origin', '*');
+  .set('Authorization', `Bearer ${token}`)
+  .set('Content-Type', 'application/json')
+  .set('Access-Control-Allow-Origin', '*');
 
 
 @Injectable({
@@ -15,23 +15,23 @@ const headers = new HttpHeaders()
 })
 export class ExamService {
 
-  private apiUrl = 'http://localhost:8080/api/exams';
+  private apiUrl = 'http://localhost:8080/api/v1/exams';
 
   constructor(private http: HttpClient) { }
 
   fetchExams(): Observable<any> {
-    return this.http.get<any>(this.apiUrl);
+    return this.http.get<any>(this.apiUrl, { headers });
   }
 
   createExam(ExamData: any) {
-    return this.http.post(this.apiUrl, ExamData, {headers});
-    }
-
-  fetchExamByStudentId(studentId: number){
-    return this.http.get<any>(this.apiUrl + `/by-student/${studentId}`, {headers})
+    return this.http.post(this.apiUrl, ExamData, { headers });
   }
 
-  fetchExamsByCourseId(courseId: number){
-    return this.http.get<any>(this.apiUrl + `/by-course/${courseId}`, {headers})
+  fetchExamByStudentId(studentId: number) {
+    return this.http.get<any>(this.apiUrl + `/by-student/${studentId}`, { headers })
+  }
+
+  fetchExamsByCourseId(courseId: number) {
+    return this.http.get<any>(this.apiUrl + `/by-course/${courseId}`, { headers })
   }
 }

@@ -1,0 +1,27 @@
+<h3 class="fw-bold">Activities</h3>
+<div class="table-wrap">
+    <table class="table table-rounded rounded rounded-4 overflow-hidden ">
+        <thead>
+          <tr>
+            <th scope="col" class="thead py-3">ID</th>
+            <th scope="col" class="thead py-3">Type</th>
+            <th scope="col" class="thead py-3">Name</th>
+            <th scope="col" class="thead py-3">Comment</th>
+            <th scope="col" class="thead py-3">Points</th>
+
+            
+          </tr>
+        </thead>
+        <tbody>
+      <tr *ngFor="let activity of activities">
+            <td class="py-3">{{ activity.id }}</td>
+            <td class="py-3">{{ activity.task.type }}</td>
+            <td class="py-3">{{ activity.activityName }}</td>
+            <td class="py-3">{{ activity.comment }}</td>
+            <td class="py-3">{{ activity.points }}</td>
+    
+            
+        </tr>
+        </tbody>
+      </table>
+</div>

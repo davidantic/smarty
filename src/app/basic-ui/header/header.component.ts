@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faBell, faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
+import { faBell, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Account } from 'src/app/models/account';
 import { AccountService } from 'src/app/services/account-service';
@@ -15,23 +15,17 @@ export class HeaderComponent {
   user: any;
   role = ""
 
-  constructor(private authService : AuthService, private accService: AccountService){}
+  constructor(private authService: AuthService, private acountService: AccountService) { }
 
-  ngOnInit(){
-    if(this.authService.getRole() == "ROLE_PROFESSOR"){
+  ngOnInit() {
+    if (this.authService.getRole() == "ROLE_PROFESSOR") {
       this.role = "PROFESSOR"
-    } else if(this.authService.getRole() == "ROLE_STUDENT"){
+    } else if (this.authService.getRole() == "ROLE_STUDENT") {
       this.role = "STUDENT"
-    }else if (this.authService.getRole() == "ROLE_ASSISTANT"){
+    } else if (this.authService.getRole() == "ROLE_ASSISTANT") {
       this.role = "ASSISTANT"
     }
-  
-    this.accService.getUser().subscribe(data =>{
-      this.user = data
-    })
 
+    this.acountService.getUser().subscribe(data => this.user = data)
   }
-
-
-
 }

@@ -11,15 +11,16 @@ export class ReportWidgetComponent {
 
   reports: Report[] = []
 
-  constructor(private api : ReportService) { 
+  constructor(private api: ReportService) {
   }
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.fetchReports();
   }
 
-  fetchReports(){
-  this.api.fetchReports().subscribe(data =>{
-    this.reports = data.content
-  })
-}}
+  fetchReports() {
+    this.api.fetchReports().subscribe(data => {
+      this.reports = data.content
+    })
+  }
+}

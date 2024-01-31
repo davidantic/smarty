@@ -3,9 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 
 const headers = new HttpHeaders()
-.set('Authorization', `Bearer ${localStorage.getItem('token')}`)
-.set('Content-Type', 'application/json')
-.set('Access-Control-Allow-Origin', '*');
+  .set('Authorization', `Bearer ${localStorage.getItem('token')}`)
+  .set('Content-Type', 'application/json')
+  .set('Access-Control-Allow-Origin', '*');
 
 
 
@@ -14,7 +14,7 @@ const headers = new HttpHeaders()
 })
 export class ActivityService {
 
-  private apiUrl = 'http://localhost:8080/api/activities';
+  private apiUrl = 'http://localhost:8080/api/v1/activities';
 
   constructor(private http: HttpClient) { }
 
@@ -23,10 +23,10 @@ export class ActivityService {
   }
 
   createActivity(ActivityData: any) {
-    return this.http.post(this.apiUrl, ActivityData, {headers});
-    }
+    return this.http.post(this.apiUrl, ActivityData, { headers });
+  }
 
-  fetchActivitesByCourseAndStudent(course: string, studentId: number): Observable<any>{
-    return this.http.get<any>(this.apiUrl + `/by-course-of-student/${studentId}?code=${course}`, {headers});
+  fetchActivitesByCourseAndStudent(course: string, studentId: number): Observable<any> {
+    return this.http.get<any>(this.apiUrl + `/by-course-of-student/${studentId}?code=${course}`, { headers });
   }
 }
