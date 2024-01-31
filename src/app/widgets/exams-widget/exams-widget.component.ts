@@ -17,21 +17,30 @@ export class ExamsWidgetComponent {
 
 
   ngOnInit(){
-    // if(this.authService.getRole() == "ROLE_PROFESSOR"){
-    //   this.role = "PROFESSOR"
-    // } else if(this.authService.getRole() == "ROLE_STUDENT"){
-    //   this.role = "STUDENT"
-    // }else if (this.authService.getRole() == "ROLE_ASSISTANT"){
-    //   this.role = "ASSISTANT"
-    // }
-   this.fetchExamsForStudent()
+    if(this.authService.getRole() == "ROLE_PROFESSOR"){
+      this.role = "PROFESSOR"
+      this.fetchExamsForProfessor()
+    } else if(this.authService.getRole() == "ROLE_STUDENT"){
+      this.role = "STUDENT"
+      this.fetchExamsForStudent()
+    }else if (this.authService.getRole() == "ROLE_ASSISTANT"){
+      this.role = "ASSISTANT"
+      this.fetchExamsForProfessor()
+    }
+   
   }
   fetchExamsForStudent(){
     this.accountService.getUser().subscribe(data =>{
       this.examService.fetchExamByStudentId(data.id).subscribe(response =>{
        console.warn(response)
-       this.exams = response
+       this.exams = response.slice(0, 4);
       })
+    })
+  }
+
+  fetchExamsForProfessor(){
+    this.examService.fetchExams().subscribe(response=>{
+      this.exams = response.content.slice(0, 4);
     })
   }
 }

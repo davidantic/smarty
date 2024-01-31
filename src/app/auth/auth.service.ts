@@ -12,7 +12,7 @@ interface LoginResponse {
 })
 export class AuthService {
 
-  constructor(private http: HttpClient, private jwtHelper : JwtHelperService) {}
+  constructor(private http: HttpClient, private jwtHelper: JwtHelperService) { }
 
   login(email: string, password: string): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(`http://localhost:8080/authenticate/login`, {
@@ -25,11 +25,10 @@ export class AuthService {
     const token = localStorage.getItem('token');
     return token !== null ? token : null;
   }
-  
-  getRole(): string | null{
+
+  getRole(): string | null {
     const token = localStorage.getItem('token');
     const decoded = this.jwtHelper.decodeToken(token!)
     return decoded.role
   }
-
 }

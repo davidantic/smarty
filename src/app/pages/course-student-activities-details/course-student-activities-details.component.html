@@ -1,1 +1,28 @@
-<p>course-student-activities-details works!</p>
+<h3 class="fw-bold">Students</h3>
+<div class="table-wrap">
+    <table class="table table-rounded rounded rounded-4 overflow-hidden ">
+        <thead>
+          <tr>
+            <th scope="col" class="thead py-3">Name</th>
+            <th scope="col" class="thead py-3">Index</th>
+            <th scope="col" class="thead py-3">Major</th>
+            <th scope="col" class="thead py-3">Year</th>
+            <th scope="col" class="thead py-3">Status</th>
+            <th scope="col" class="thead py-3">Activities</th>
+        </tr>
+        </thead>
+        <tbody>
+      <tr *ngFor="let student of students" class="overflow-hidden">
+            <td class="py-3">{{ student.name}} {{student.surname}}</td>
+            <td class="py-3">{{ student.index }}</td>
+            <td class="py-3">{{ student.major.fullName }}</td>
+            <td class="py-3">{{ student.year }}</td>
+            <td class="py-3">{{ student.status.type }}</td>
+            <td class="py-3">
+          <a href="#" [routerLink]="['courses/professor-activities', student.id]"><fa-icon [icon]="listIcon" class="mx-1"
+              style="color:black"></fa-icon></a>
+        </td>
+        </tr>
+        </tbody>
+      </table>
+</div>

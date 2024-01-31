@@ -4,9 +4,9 @@ import { Observable } from 'rxjs/internal/Observable';
 
 const token = localStorage.getItem('token')
 const headers = new HttpHeaders()
-.set('Authorization', `Bearer ${token}`)
-.set('Content-Type', 'application/json')
-.set('Access-Control-Allow-Origin', '*');
+  .set('Authorization', `Bearer ${token}`)
+  .set('Content-Type', 'application/json')
+  .set('Access-Control-Allow-Origin', '*');
 
 
 @Injectable({
@@ -17,6 +17,6 @@ export class TaskService {
   constructor(private http: HttpClient) { }
 
   getTasksByCourseId(courseId: number): Observable<any> {
-    return this.http.get<any>(`http://localhost:8080/api/tasks/by-course/${courseId}`, {headers});
+    return this.http.get<any>(`http://localhost:8080/api/v1/tasks/by-course/${courseId}`, { headers });
   }
 }

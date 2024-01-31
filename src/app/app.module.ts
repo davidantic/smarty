@@ -21,7 +21,6 @@ import { CourseWidgetComponent } from './widgets/course-widget/course-widget.com
 import { LoginComponent } from './pages/login/login.component';
 import { HomeworkWidgetComponent } from './widgets/homework-widget/homework-widget.component';
 import { StatisticsWidgetComponent } from './widgets/statistics-widget/statistics-widget.component';
-import { CourseService } from './services/course-service';
 import { ReportsListComponent } from './pages/reports-list/reports-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PostsComponent } from './pages/posts/posts.component';
@@ -39,7 +38,7 @@ import { ReportWidgetComponent } from './widgets/report-widget/report-widget.com
 import { CourseActivityDetailComponent } from './pages/course-activity-detail/course-activity-detail.component';
 import { CourseExamDetailsComponent } from './pages/course-exam-details/course-exam-details.component';
 import { CourseStudentActivitiesDetailsComponent } from './pages/course-student-activities-details/course-student-activities-details.component';
-
+import { CourseActivitiesByStudentComponent } from './pages/course-activities-by-student/course-activities-by-student.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -56,10 +55,11 @@ const routes: Routes = [
   { path: 'posts', component: PostsComponent, canActivate: [AuthGuard] },
   { path: 'posts-form', component: PostsFormComponent },
   { path: 'exams/:id', component: ExamsFormComponent },
-  {path:'exams', component:ExamsComponent},
-  {path : 'course-activity/:id/:code', component: CourseActivityDetailComponent},
-  {path : 'courses/course-exam/:id', component: CourseExamDetailsComponent}
-
+  { path: 'exams', component: ExamsComponent },
+  { path: 'course-activity/:id/:code', component: CourseActivityDetailComponent },
+  { path: 'courses/course-exam/:id', component: CourseExamDetailsComponent },
+  { path: 'course-student-activity/:id', component: CourseStudentActivitiesDetailsComponent },
+  { path: 'course-student-activity/:courseId/courses/professor-activities/:studentId', component: CourseActivitiesByStudentComponent },
 ];
 
 export function tokenGetter() {
@@ -69,10 +69,10 @@ export function tokenGetter() {
 export function jwtOptionsFactory() {
   return {
     tokenGetter: () => {
-   return localStorage.getItem('token');
+      return localStorage.getItem('token');
     },
-    allowedDomains: ['http://localhost:4200'], 
- };
+    allowedDomains: ['http://localhost:4200'],
+  };
 }
 
 @NgModule({
@@ -107,6 +107,7 @@ export function jwtOptionsFactory() {
     CourseActivityDetailComponent,
     CourseExamDetailsComponent,
     CourseStudentActivitiesDetailsComponent,
+    CourseActivitiesByStudentComponent,
   ],
   imports: [
     BrowserModule,
@@ -119,10 +120,10 @@ export function jwtOptionsFactory() {
       jwtOptionsProvider: {
         provide: JWT_OPTIONS,
         useFactory: jwtOptionsFactory,
-      },})
-
+      },
+    })
   ],
-  providers: [    {
+  providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: JwtInterceptor,
     multi: true,
